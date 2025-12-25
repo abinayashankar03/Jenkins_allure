@@ -15,7 +15,7 @@ test("iframe",async({page})=>{
 
     const frame=await page.frame({url:"https://ui.vision/demo/webtest/frames/frame_1.html"})
 
-    await frame.locator('//input[@name="mytext1"]').fill("playwright")
+    await frame.locator('//input[@name="mytext123232"]').fill("playwright")
 
     await page.pause()
 
@@ -24,14 +24,14 @@ test("iframe",async({page})=>{
 //await page.frameLocator('//iframe[@id="courses-iframe"]')
 })
 
-// test("nested frames",async({page})=>{
-//     await page.goto("https://ui.vision/demo/webtest/frames/")
+test("nested frames",async({page})=>{
+    await page.goto("https://ui.vision/demo/webtest/frames/")
 
-//     const frame=await page.frame({url:"https://ui.vision/demo/webtest/frames/frame_3.html"})
-//     await frame.locator('//input[@name="mytext3"]').fill("playwright")
+    const frame=await page.frame({url:"https://ui.vision/demo/webtest/frames/frame_3.html"})
+    await frame.locator('//input[@name="mytext3"]').fill("playwright")
 
-//     const child=await frame.childFrames()
-//     await child[0].locator('(//div[@class="AB7Lab Id5V1"])[2]').check()
+    const child=await frame.childFrames()
+    await child[0].locator('(//div[@class="AB7Lab Id5V1"])[2]').check()
 
-//     await page.pause()
-// })
+    await page.pause()
+})
