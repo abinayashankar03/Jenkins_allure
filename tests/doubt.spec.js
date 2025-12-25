@@ -1,0 +1,16 @@
+import {test , expect} from '@playwright/test'
+test('dropdown',async({page})=>{
+    await page.goto('https://letcode.in/test')
+    await page.locator('//a[@href="/dropdowns"]').click()
+    await page.locator('//select[@id="fruits"]').selectOption('Apple')
+    await page.locator('//select[@id="superheros"]').selectOption(['Ant-Man','Batman','Captain America'])
+    const cnt=await page.locator('//select[@id="lang"]/option').count()
+    console.log(cnt)
+    const print=await page.locator('//select[@id="lang"]').textContent()
+    console.log(print)
+    await page.locator('//select[@id="lang"]').selectOption({value:"sharp"})
+    await page.pause()
+    await page.locator('//select[@id="country"]').selectOption({value:"India"})
+    const sel=await page.locator('//option[@value="India"]').textContent()
+    console.log(sel)
+})
