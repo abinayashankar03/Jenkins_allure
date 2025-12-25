@@ -1,6 +1,6 @@
 import {test , expect} from '@playwright/test'
 
-test.skip("single select dropdown",async({page})=>{
+test("single select dropdown",async({page})=>{
     await page.goto("https://testautomationpractice.blogspot.com/")
 
     const cnt=await page.locator('//select[@id="country"]/option').count()
